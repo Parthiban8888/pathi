@@ -1,0 +1,61 @@
+q1.	permutations   lexicographic
+
+from itertools import permutations
+a=list(map(str,input().split()))
+b=a[0]
+c=int(a[1])
+for i in sorted(permutations(b,c)):
+    print(''.join(i))
+
+
+Input:
+
+     HACK 2
+
+Output:
+
+AC
+AH
+AK
+CA
+CH
+CK
+HA
+HC
+HK
+KA
+KC
+KH			
+		
+q2.    Given the names and grades for each student in a class of  students, store them in a nested list and print the name(s) of any student(s) having the second lowest grade.
+
+
+N=int(input())
+students = []
+for i in range(2*N):
+    students.append(input().split())
+g = {}
+for j in range(0, len(students), 2):
+    g[students[j][0]] = float(students[j + 1][0])
+result = []
+m = sorted(set(g.values()))[1]
+for p in g.keys():
+    if g[p] == m:
+        result.append(p)
+for k in sorted(result):
+    print(k)
+print(m)
+
+Input			Output
+
+5
+Harry
+37.21			Berry
+Berry
+37.21			Harry
+Tina
+37.2
+Akriti
+41
+Harsh
+39
